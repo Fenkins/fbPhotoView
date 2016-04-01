@@ -20,15 +20,18 @@
 
     _loginButton = [FBSDKLoginButton new];
     _loginButton.center = self.view.center;
-    _loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends"];
+    _loginButton.readPermissions = @[@"public_profile", @"email", @"user_friends", @"user_photos"];
     _loginButton.delegate = self;
     [self.view addSubview:_loginButton];
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     // If we already logged in
     if ([FBSDKAccessToken currentAccessToken]){
-        NSLog(@"Popping VC now");
+        UINavigationController *navController = [self.storyboard instantiateViewControllerWithIdentifier:@"navControllerMain"];
+        [self presentViewController:navController animated:YES completion:nil];
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,6 +48,10 @@
 
 -(void)loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
     NSLog(@"didCompleteWithResult Called");
+    if ([FBSDKAccessToken currentAccessToken]){
+        UINavigationController *navController = [self.storyboard instantiateViewControllerWithIdentifier:@"navControllerMain"];
+        [self presentViewController:navController animated:YES completion:nil];
+    }
 }
 
 -(void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {

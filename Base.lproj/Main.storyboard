@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="243" y="414"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Photos Table View Controller-->
         <scene sceneID="n56-02-dnY">
             <objects>
-                <tableViewController id="Y44-jg-CuR" sceneMemberID="viewController">
+                <tableViewController id="Y44-jg-CuR" customClass="PhotosTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="WeQ-iP-m3D">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,7 +67,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="qvm-1F-U33">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="uEE-zu-0Zg"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="uEE-zu-0Zg">
+                            <connections>
+                                <action selector="logoutButtonPressed:" destination="Y44-jg-CuR" id="Hnd-LD-9To"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2jy-d3-b2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -77,7 +81,7 @@
         <!--Navigation Controller-->
         <scene sceneID="VXy-Jb-ueF">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="E5c-ni-gF5" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="navControllerMain" automaticallyAdjustsScrollViewInsets="NO" id="E5c-ni-gF5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3lO-UG-Axk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
