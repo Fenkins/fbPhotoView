@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import "Request.h"
+#import "Record.h"
+#import "IconDownloader.h"
 
-@interface PhotosTableViewController : UITableViewController
+@interface AlbumsTableViewController : UITableViewController
+
+// the main data model for our UITableView
+@property (nonatomic, strong) NSArray *entries;
 
 @end
